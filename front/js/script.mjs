@@ -1,7 +1,7 @@
 import { fn } from './function.mjs'
 
-fn.getAll().then(e =>{
-    e.forEach(element => {
+fn.getAll().then(res =>{
+    res.forEach(element => {
       const card = 
       fn.stringToHtml(`
       <a href="./product.html?id=${element._id}">
