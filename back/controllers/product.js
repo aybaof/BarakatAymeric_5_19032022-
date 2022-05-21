@@ -58,7 +58,6 @@ exports.orderProducts = (req, res, next) => {
   }
   let queries = [];
   for (let productId of req.body.products) {
-    console.log(req.body)
     const queryPromise = new Promise((resolve, reject) => {
       Product.findById(productId).then(
         (product) => {

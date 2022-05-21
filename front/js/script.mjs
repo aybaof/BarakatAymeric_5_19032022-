@@ -1,5 +1,7 @@
 import { fn } from './function.mjs'
 
+
+// request all product , element id is passed as href parametters for redirect
 fn.getAll().then(res =>{
     res.forEach(element => {
       const card = 

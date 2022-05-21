@@ -5,11 +5,11 @@ let cart = JSON.parse(localStorage.getItem("cart"))
 
 const currentLocation = window.location.href;
 
-// display error msg in case of error in regexValidation
 
 // If statement using location because cart is being used in 2 different path
 if (currentLocation === "http://127.0.0.1:5500/front/html/cart.html") {
   
+  // display error msg in case of error in regexValidation , str is the error msg , input is the selector where the error msg has been fired
   const errorMsg = (str, input) => {
     const errorLabel = document.querySelector(`#${input}ErrorMsg`)  
     errorLabel.textContent = str;
@@ -17,7 +17,7 @@ if (currentLocation === "http://127.0.0.1:5500/front/html/cart.html") {
       errorLabel.textContent = ''
     })
   };
-  // calcul tu total et change l'ui
+  // Logic + UI
   const totalAmount = () => {
     let total = 0;
     let nbProduct = 0;
@@ -28,7 +28,7 @@ if (currentLocation === "http://127.0.0.1:5500/front/html/cart.html") {
     document.querySelector("#totalPrice").textContent = total;
     document.querySelector("#totalQuantity").textContent = nbProduct;
   };
-  // supprime l'item du panier et update l'ui
+  // product = idProduct to delete , logic + UI
   const deleteItem = (product) => {
       cart = cart.filter(
           (productInCart) => productInCart.id !== product.id
@@ -39,7 +39,7 @@ if (currentLocation === "http://127.0.0.1:5500/front/html/cart.html") {
   } 
   
   
-  // Augmente la quantité du produit dans le panier et change l'ui du panier
+  // product = product ID , logic + UI
   const updateQuantity = (product) => {
               const productToUpdate = cart.find(
               (productInCart) =>

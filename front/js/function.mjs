@@ -5,7 +5,7 @@ postHeaders.append('Content-Type', 'application/json');
 // Module function to avoid repetition
 
 const fn = {
-    // requete get all product
+    // return [{colors : [strings], id : string , name : string , price : number , imageUrl : string , altTxt : string}}] 
     getAll : async () => {
             const res = await fetch(`${urlApi}`)
             const data = await res.json()
@@ -24,7 +24,7 @@ const fn = {
         const element = parser.parseFromString(template, "text/html");
         return element.body.firstChild;
     },
-    // requete post
+    // contact = { firstname , lastName ,address , city , email} , cart = [product-ID : string]
     postOrder : async (obj , cart) =>{
         const body = {
             contact : obj,

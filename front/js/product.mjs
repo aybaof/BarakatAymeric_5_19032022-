@@ -7,7 +7,7 @@ const id = param.get("id");
 
 const addItem = (id, color, quantity,price) => {
   let cart = JSON.parse(localStorage.getItem("cart"));
-  cart ? cart : cart = [];
+  cart ? cart :  wxcart = [];
   const isInCart = cart.find(product => product.id === id && product.color === color);
   isInCart
     ? (isInCart.quantity += quantity)
@@ -18,6 +18,8 @@ const addItem = (id, color, quantity,price) => {
 }
 
 
+
+// UI creation 
 fn.getSpecific(id).then((res) => {
   document
     .querySelector(".item__img")
@@ -27,6 +29,7 @@ fn.getSpecific(id).then((res) => {
   document.querySelector("#title").textContent = res.name;
   document.querySelector("#price").textContent = res.price;
   document.querySelector("#description").textContent = res.description;
+  
   const select = document.querySelector("#colors");
   res.colors.forEach((color) => {
     select.appendChild(
@@ -35,9 +38,11 @@ fn.getSpecific(id).then((res) => {
   });
 
   document.querySelector("#addToCart").addEventListener("click", () => {
+
     const color = document.querySelector("#colors").value;
     const quantity = parseInt(document.querySelector("#quantity").value);
     const price = res.price;
+    // id is already used as a page param 
     if (id && color && quantity && price) {
       addItem(id, color, quantity,price);
     } else {
