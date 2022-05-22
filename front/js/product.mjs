@@ -7,7 +7,7 @@ const id = param.get("id");
 
 const addItem = (id, color, quantity,price) => {
   let cart = JSON.parse(localStorage.getItem("cart"));
-  cart ? cart :  wxcart = [];
+  cart ? cart : cart = [];
   const isInCart = cart.find(product => product.id === id && product.color === color);
   isInCart
     ? (isInCart.quantity += quantity)
